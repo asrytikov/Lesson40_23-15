@@ -1,7 +1,5 @@
-package com.example.lesson39.controllers;
+package com.example.lesson40;
 
-import com.example.lesson39.model.Purchase;
-import com.example.lesson39.repository.PurchaseRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

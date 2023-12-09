@@ -1,6 +1,5 @@
-package com.example.lesson39.repository;
+package com.example.lesson40;
 
-import com.example.lesson39.model.Purchase;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -17,12 +16,12 @@ public class PurchaseRepository {
     }
 
     public void storePurchase(Purchase purchase){
-        String sql = "INSERT INTO purchase VALUES(?, ?)";
+        String sql = "INSERT INTO public.purchase(product, price) VALUES(?, ?)";
         jdbcTemplate.update(sql, purchase.getProduct(), purchase.getPrice());
     }
 
     public List<Purchase> findAllPurchase(){
-        String sql = "SELECT * FROM purchase";
+        String sql = "SELECT * FROM public.purchase";
         RowMapper<Purchase> purchaseRowMapper = (r, i) -> {
             Purchase purchase = new Purchase();
             purchase.setId(r.getInt("id"));
